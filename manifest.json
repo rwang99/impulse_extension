@@ -1,5 +1,5 @@
 {
-  "manifest_version": 1,
+  "manifest_version": 2,
 
   "name": "Impulse",
   "description": "Helping people be conscious of their spending habits and avoid impulse purchases.",
@@ -12,16 +12,12 @@
     "chrome_style": false
   },
 
-  "browser_action": {
-    "default_icon": "icon.png"
-  },
-
   "icons": {},
 
   "permissions": [
     "http://*/*", "https://*/*",
     "activeTab",
-    "storage",
+    "storage"
   ],
 
   "content_scripts": 
@@ -29,7 +25,8 @@
     {
       "matches": ["*://*/*"], 
       "js": ["/jquery-3.2.1.min.js","script.js"],
-      "run_at": "document_end"  
+      "run_at": "document_end",
+      "css": ["popup.css"]
     }
   ]
 
