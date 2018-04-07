@@ -27,6 +27,10 @@
     font-size: 18px !important;
 }
 
+.modal-impulse h5{
+    font-size: 14px !important;
+}
+
 /* The Modal (background) */
 .modal-impulse {
     display: block; /* Hidden by default */
@@ -65,12 +69,29 @@
     margin-bottom: 20px;
 }
 
-.modal-impulse-justification{
-    border-radius: none;
+.impulse-reason-box{
+    box-shadow: none;
     resize: none;
+    outline: 0;
+    border: 3px solid var(--green);
+    border-radius: 6px;
+}
+
+.impulse-reason-box:focus{
+    box-shadow: none;
+    border-color: var(--green);
 }
 
 .modal-impulse button{
     border: none;
     background-color: var(--green) !important;
+}
+
+.modal-impulse input {
+  position: absolute;
+  opacity: 0;
+}
+
+.char-count{
+    margin-bottom: 5px;
 }
