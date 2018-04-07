@@ -95,6 +95,12 @@
     background-color: var(--green) !important;
 }
 
+#impulse-modal-close{
+    box-shadow: none;
+    border: none;
+    background-color: var(--green) !important;
+}
+
 #impulse-modal-buy:focus{
     border: none !important;
     outline: 0 !important;
@@ -107,6 +113,12 @@
     box-shadow: none;
 }
 
+#impulse-modal-close:focus{
+    border: none !important;
+    outline: 0 !important;
+    box-shadow: none;
+}
+
 #impulse-modal-buy:active{
     border: none !important;
     outline: 0 !important;
@@ -114,6 +126,12 @@
 }
 
 #impulse-modal-cancel:active{
+    border: none !important;
+    outline: 0 !important;
+    box-shadow: none;
+}
+
+#impulse-modal-close:active{
     border: none !important;
     outline: 0 !important;
     box-shadow: none;
