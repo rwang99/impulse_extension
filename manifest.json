@@ -20,13 +20,13 @@
     "storage"
   ],
 
-  "content_scripts": 
+  "content_scripts":
   [
     {
-      "matches": ["*://*/*"], 
-      "js": ["/jquery-3.2.1.min.js","script.js"],
+      "matches": ["*://*/*"],
+      "js": ["jquery-3.2.1.min.js","script.js"],
       "run_at": "document_end",
-      "css": ["popup.css"]
+      "css": ["bootstrap.min.css","popup.css","pacifico.css","roboto.css"]
     }
   ]
 

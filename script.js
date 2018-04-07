@@ -1,36 +1,30 @@
+// When the user presses proceed to checkout
+$("#sc-buy-box-ptc-button").click(function(e){
 
-//Regex to find the place order button
-var p = document.getElementsByClassName("place-order-button-link");
+    e.preventDefault(); // Pause the request
 
-/*
-$("#sc-buy-box-ptc-button").click(function(){
-    var mod = document.createElement('div');
-    $('#sc-subtotal-amount-activecart').after('<div style="background-color:yellow"> New div </div>');
-    mod.setAttribute('modal', '');
-    document.querySelector('#sc-new-upsell').appendChild(mod);
-    alert("Test: " + $("#sc-subtotal-amount-activecart").text());
+    let modalHTML = '<div class="modal-impulse">'+
+                        '<div class = "container-fluid modal-impulse-content">'+
+                            '<div class = "modal-impulse-header row">' +
+                                '<h1 class = "col-md-12 text-center">Impulse</h1>' +
+                            '</div>' +
+                            '<div class = "modal-impulse-main row">' +
+                                '<h2 class = "text-center light col-md-12" id = "impulse-main-instruct">Provide Justification For This Purchase.</h2>' +
+                                '<br>' +
+                                '<form class = "col-md-8 offset-md-2">' +
+                                    '<div class="form-group">' +
+                                        '<textarea class="form-control" rows="5" id="modal-justification"></textarea>' +
+                                    '</div>' +
+                                    '<br>' +
+                                    '<div class = "text-center">' +
+                                        '<button type="submit" class="btn btn-primary">Buy Now</button> ' +
+                                        '<button class="btn btn-primary">This Is An Impulse Purchase</button>' +
+                                    '</div>'+
+                                '</form>' +
+                            '</div>' +
+                        '</div>' +
+                    '</div>';
 
-});
-
-*/
-
-$("#sc-buy-box-ptc-button").click(function(){
-    event.preventDefault();
-
-    $('body').append('<div class="modal"><div class = "modal-content"> HELO' + $("#sc-subtotal-amount-activecart").text() + '</div></div>');
-
-    event.submit();
-
-});
-
-$("#sc-buy-box-ptc-button").submit(function(e){
-
-    e.preventDefault();
-
-    $('body').append('<div class="modal"><div class = "modal-content"> HELO' + $("#sc-subtotal-amount-activecart").text() + '</div></div>');
-
-    setInterval(function(){
-        e.submit();
-    },1000);
+    $('body').append(modalHTML);
 
 });
