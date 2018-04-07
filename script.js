@@ -13,12 +13,12 @@ $("#sc-buy-box-ptc-button").click(function(e){
                                 '<br>' +
                                 '<form class = "col-md-8 offset-md-2">' +
                                     '<div class="form-group">' +
-                                        '<textarea class="form-control" rows="5" id="modal-justification"></textarea>' +
+                                        '<textarea class="form-control modal-impulse-justification" rows="5"></textarea>' +
                                     '</div>' +
                                     '<br>' +
                                     '<div class = "text-center">' +
-                                        '<button type="submit" class="btn btn-primary">Buy Anyway</button> ' +
-                                        '<button class="btn btn-primary">This Is An Impulse Purchase</button>' +
+                                        '<button type="submit" class="btn btn-primary">Buy Anyway <i class="fas fa-credit-card"></i></button> ' +
+                                        '<button class="btn btn-primary">This Is An Impulse Purchase <i class="fas fa-ban"></i></button>' +
                                     '</div>'+
                                 '</form>' +
                             '</div>' +
