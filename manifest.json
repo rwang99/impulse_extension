@@ -30,7 +30,6 @@
     {
       "matches": ["*://*/*"],
       "js": ["jquery-3.2.1.min.js","script.js","bootstrap.min.js"],
-      "run_at": "document_end",
       "css": ["/stylesheets/bootstrap.min.css","/stylesheets/popup.css","/stylesheets/pacifico.css","/stylesheets/roboto.css"]
     }
   ]

@@ -38,7 +38,6 @@
     z-index: 1000; /* Sit on top */
     left: 0;
     top: 0;
-    max-height: 100vh;
     overflow-y: hidden;
     width: 100%; /* Full width */
     height: 100%; /* Full height */
@@ -50,7 +49,7 @@
 .modal-impulse-content {
     font-family: "Roboto";
     background-color: var(--white);
-    margin: 15% auto; /* 15% from the top and centered */
+    margin: 12% auto; /* 15% from the top and centered */
     padding: 20px;
     border-radius: 4px;
     width: 50%; /* Could be more or less, depending on screen size */

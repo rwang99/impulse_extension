@@ -1,4 +1,5 @@
 let poppedUp = false;
+let itemPriceAccountedFor = false;
 
 // When the user presses proceed to checkout
 
@@ -61,13 +62,44 @@ $("#sc-buy-box-ptc-button").click(function(e){
 
         // If the user clicks the buy now button then they have inputted the min number of chars
         $("#impulse-modal-buy").click(function(){
+
             poppedUp = true; // Alter the boolean
+
+            let purchasedData = {
+
+                itemTitle: $('.sc-product-title')[0].innerHTML,
+                itemPrice: $('.sc-product-price')[0].innerHTML.replace('$',''),
+                purchaseDate: (new Date).getTime(),
+                wasPurchased: true,
+                decisionReason: $(".impulse-reason-box").val(),
+
+            }
+
+            /* THIS IS WHERE THE POST REQUEST WILL GO */
+
+            $(".modal-impulse-wrapper").html(""); // Blank the modal
             $('#sc-buy-box-ptc-button').trigger('click'); // Allow them to continue with their checkout
         })
 
         // If the user cancels the purchase
         $("#impulse-modal-cancel").click(function(){
+            if (!itemPriceAccountedFor){ // If we have not accounted for the savings, account for them
+
+                let unpurchasedData = {
+
+                    itemTitle: $('.sc-product-title')[0].innerHTML,
+                    itemPrice: $('.sc-product-price')[0].innerHTML.replace('$',''),
+                    purchaseDate: (new Date).getTime(),
+                    wasPurchased: false,
+                    decisionReason: "",
+
+                }
+
+                /* THIS IS WHERE THE POST REQUEST WILL GO */
+
+            }
             $(".modal-impulse-wrapper").html(""); // Blank the modal
+            itemPriceAccountedFor = true;
         })
 
     }
