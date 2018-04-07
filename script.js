@@ -1,6 +1,8 @@
 // When the user presses proceed to checkout
 $("#sc-buy-box-ptc-button").click(function(e){
 
+    let numCharRequired = 100;
+
     e.preventDefault(); // Pause the request
 
     let modalHTML = '<div class="modal-impulse">'+
@@ -9,11 +11,13 @@ $("#sc-buy-box-ptc-button").click(function(e){
                                 '<h1 class = "col-md-12 text-center">Impulse</h1>' +
                             '</div>' +
                             '<div class = "modal-impulse-main row">' +
-                                '<h2 class = "text-center light col-md-12" id = "impulse-main-instruct">Provide Justification For This Purchase.</h2>' +
+                                '<h2 class = "text-center modal-light col-md-12" id = "impulse-main-instruct">Why Are You Buying This?</h2>' +
                                 '<br>' +
-                                '<form class = "col-md-8 offset-md-2">' +
-                                    '<div class="form-group">' +
-                                        '<textarea class="form-control modal-impulse-justification" rows="5"></textarea>' +
+                                `<h5 class = "char-count modal-light col-md-12 text-center">${numCharRequired} characters left until you can purchase this item.</h5>` +
+                                '<br>' +
+                                '<form class = "col-md-12">' +
+                                    '<div class="form-group col-md-6 offset-md-3">' +
+                                        '<textarea class="form-control impulse-reason-box" rows="5"></textarea>' +
                                     '</div>' +
                                     '<br>' +
                                     '<div class = "text-center">' +
@@ -26,5 +30,10 @@ $("#sc-buy-box-ptc-button").click(function(e){
                     '</div>';
 
     $('body').append(modalHTML);
+
+    $('.impulse-reason-box').on('keyup', function(event) {
+       let numChar = numCharRequired - $(this).val().length;
+      $('.char-count').html(numChar + " characters left until you can purchase this item.");
+    });
 
 });
