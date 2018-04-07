@@ -96,7 +96,6 @@ $("#sc-buy-box-ptc-button").click(function(e){
 
         // If the user cancels the purchase
         $("#impulse-modal-cancel").click(function(){
-            console.dir(JSON.parse(localStorage.getItem("user")));
             if (!itemPriceAccountedFor){ // If we have not accounted for the savings, account for them
 
                 let unpurchasedData = {
