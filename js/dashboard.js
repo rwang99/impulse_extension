@@ -25,6 +25,9 @@ $(document).ready(function(){
             $("#welcome-text").html("Welcome, " + user.user.name);
 
         });
+
+        // POST IP, USERID
+
     });
 
     $ ( "#logout-button").click(function(){
@@ -33,6 +36,8 @@ $(document).ready(function(){
 
         $(".not-signed-in").show();
         $(".signed-in").hide();
+
+        // DELETE IP, USERID
 
     })
 
