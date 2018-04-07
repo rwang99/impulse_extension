@@ -17,7 +17,7 @@ $("#sc-buy-box-ptc-button").click(function(e){
                                     '</div>' +
                                     '<br>' +
                                     '<div class = "text-center">' +
-                                        '<button type="submit" class="btn btn-primary">Buy Now</button> ' +
+                                        '<button type="submit" class="btn btn-primary">Buy Anyway</button> ' +
                                         '<button class="btn btn-primary">This Is An Impulse Purchase</button>' +
                                     '</div>'+
                                 '</form>' +
