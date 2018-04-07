@@ -28,7 +28,12 @@
   "content_scripts": [
     {
       "matches": ["*://*/*"],
-      "js": ["jquery-3.2.1.min.js","script.js","bootstrap.min.js"],
+      "js": [
+        "js/stitch.min.js",
+        "jquery-3.2.1.min.js",
+        "script.js",
+        "bootstrap.min.js"
+      ],
       "run_at": "document_end",
       "css": [
         "/stylesheets/bootstrap.min.css",

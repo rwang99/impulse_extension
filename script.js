@@ -1,8 +1,10 @@
 let poppedUp = false;
 let itemPriceAccountedFor = false;
 
-// When the user presses proceed to checkout
+let appId = 'impulse-gmdpe';
+let stitchClientPromise = stitch.StitchClientFactory.create(appId);
 
+// When the user presses proceed to checkout button stop action
 $("#sc-buy-box-ptc-button").click(function(e){
 
     // If the user has not put in their justification yet
@@ -76,6 +78,17 @@ $("#sc-buy-box-ptc-button").click(function(e){
             }
 
             /* THIS IS WHERE THE POST REQUEST WILL GO */
+            // stitchClientPromise.then(client => {
+            //     const db = client.service('mongodb', 'mongodb-atlas').db('impulse');
+            //     client.login().then(()=>
+            //         db.collection('users').find({email: "ephremdsg@gmail.com"}).execute()
+            //     ).then(docs => {
+            //         console.log("Found docs", docs)
+            //         console.log("[MongoDB Stitch] Connected to Stitch")
+            //     }).catch(err => {
+            //         console.error(err)
+            //     });
+            // });
 
             $(".modal-impulse-wrapper").html(""); // Blank the modal
             $('#sc-buy-box-ptc-button').trigger('click'); // Allow them to continue with their checkout
@@ -83,6 +96,7 @@ $("#sc-buy-box-ptc-button").click(function(e){
 
         // If the user cancels the purchase
         $("#impulse-modal-cancel").click(function(){
+            console.dir(JSON.parse(localStorage.getItem("user")));
             if (!itemPriceAccountedFor){ // If we have not accounted for the savings, account for them
 
                 let unpurchasedData = {
