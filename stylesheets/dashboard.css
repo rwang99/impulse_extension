@@ -1,0 +1,22 @@
+:root{
+    --black: #04080F;
+    --darkgreen: #008748;
+    --green: #13BE7F;
+    --red: #EF2D56;
+    --white: #FFFFFF;
+    --gray: #DBDBDB;
+}
+
+html, body {
+    min-height: 360px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-right: 20px;
+    margin-left: 20px;
+    width:384px;
+}
+
+h1 {
+    font-family: "Pacifico";
+    color: var(--green);
+}
