@@ -9,14 +9,32 @@
 
 html, body {
     min-height: 360px;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    margin-right: 20px;
-    margin-left: 20px;
+    margin: 0 auto !important;
+    padding-top: 15px;
     width:384px;
 }
 
-h1 {
+.dashboard-header{
     font-family: "Pacifico";
     color: var(--green);
+}
+
+.container-fluid{
+    margin-right: 20px;
+}
+
+h1, h2, h5{
+    line-height: 50px;
+}
+
+.light{
+    font-weight: 300;
+}
+
+.medium{
+    font-weight: 400;
+}
+
+.bold{
+    font-weight: 700;
 }
