@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="Content-Security-Policy" content="default-src gap://ready file://* *; style-src 'self' http://* https://* 'unsafe-inline'; script-src 'self' http://* https://* 'unsafe-inline' 'unsafe-eval'">
+
+        <!-- jQuery -->
+        <script src = "jquery-3.2.1.min.js"></script>
+
+        <!-- Bootstrap CSS -->
+        <link rel = "stylesheet" href = "/stylesheets/bootstrap.min.css">
+
+        <!--Font Awesome-->
+        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+        <!-- Google Fonts -->
+        <link href="https://fonts.googleapis.com/css?family=Pacifico|Roboto:300,700" rel="stylesheet">
+
+        <!-- Custom CSS -->
+        <link rel = "stylesheet" href = "/stylesheets/dashboard.css">
+
+    </head>
+
+    <body>
+
+        <div class = "container-fluid not-signed-in">
+            <div class = "row">
+                <h1 class="col-md-12 dashboard-header text-center">Impulse</h1>
+            </div>
+            <br>
+            <div class = "row">
+                <div class = "col-md-8 offset-md-2 signin-wrapper">
+                    <h3 class = "text-center bold">Sign In</h3>
+                    <br>
+                    <form class = "col-md-6 offset-md-3">
+                        <div class="form-group">
+                            <input type="email" class="form-control light" id="name" name="email" aria-describedby="emailHelp" placeholder="Enter email" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="password" class="form-control light" id="password" name="password" placeholder="Password" required>
+                        </div>
+                        <div class = "text-center"><button type="button" class="btn btn-primary" id = "signin-button">Sign In</button></div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div class = "container-fluid signed-in">
+            <div class = "row">
+                <h1 class="col-md-12 dashboard-header text-center">Impulse</h1>
+            </div>
+            <br>
+            <div class = "row">
+                <div class = "col-md-8 offset-md-2 signin-wrapper">
+                    <h2 class = "text-center light" id = "welcome-text">Welcome, user.</h2>
+                    <br>
+                </div>
+            </div>
+            <div class = "row">
+                <div class = "text-center col-md-12"><button type="button" class="btn btn-primary" id = "logout-button">Logout</button></div>
+            </div>
+        </div>
+
+        <!--  -->
+        <script src="js/dashboard.js"></script>
+
+
+    </body>
+</html>

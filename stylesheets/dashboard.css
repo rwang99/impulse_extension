@@ -1,0 +1,88 @@
+:root{
+    --black: #04080F;
+    --darkgreen: #008748;
+    --green: #13BE7F;
+    --red: #EF2D56;
+    --white: #FFFFFF;
+    --gray: #DBDBDB;
+}
+
+html, body {
+    min-height: 360px;
+    margin: 0 auto !important;
+    padding-top: 15px;
+    width:384px;
+}
+
+.dashboard-header{
+    font-family: "Pacifico";
+    color: var(--green);
+}
+
+.container-fluid{
+    margin-right: 20px;
+}
+
+h1, h2, h5{
+    line-height: 50px;
+}
+
+h1 {
+    font-size: 40px;
+}
+
+.light{
+    font-weight: 300;
+}
+
+.medium{
+    font-weight: 400;
+}
+
+.bold{
+    font-weight: 700;
+}
+
+.signed-in{
+    display: none;
+}
+
+.signin-wrapper input:focus{
+    outline: 0 !important;
+    box-shadow: none;
+    border-color: #D9D9D9;
+}
+
+#signin-button{
+    background-color: var(--green);
+    border: none;
+}
+
+#logout-button{
+    background-color: var(--green);
+    border: none;
+}
+
+#signin-button:focus{
+    border: none !important;
+    outline: 0 !important;
+    box-shadow: none;
+}
+
+#signin-button:active{
+    border: none !important;
+    outline: 0 !important;
+    box-shadow: none;
+}
+
+#logout-button:focus{
+    border: none !important;
+    outline: 0 !important;
+    box-shadow: none;
+}
+
+#logout-button:active{
+    border: none !important;
+    outline: 0 !important;
+    box-shadow: none;
+}

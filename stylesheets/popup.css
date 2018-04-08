@@ -1,0 +1,153 @@
+:root{
+    --black: #04080F;
+    --darkgreen: #008748;
+    --green: #13BE7F;
+    --red: #EF2D56;
+    --white: #FFFFFF;
+    --gray: #DBDBDB;
+}
+
+.modal-light{
+    font-weight: 300;
+}
+
+.modal-bold{
+    font-weight: 700;
+}
+
+.modal-impulse h1{
+    font-size: 50px !important;
+}
+
+.modal-impulse h2{
+    font-size: 24px !important;
+}
+
+.modal-impulse h3{
+    font-size: 18px !important;
+}
+
+.modal-impulse h5{
+    font-size: 14px !important;
+}
+
+/* The Modal (background) */
+.modal-impulse {
+    display: block; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1000; /* Sit on top */
+    left: 0;
+    top: 0;
+    overflow-y: hidden;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.modal-impulse-content {
+    font-family: "Roboto";
+    background-color: var(--white);
+    margin: 12% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border-radius: 4px;
+    width: 50%; /* Could be more or less, depending on screen size */
+    box-shadow: 0 8px 10px 0 rgba(0,0,0,0.1);
+}
+
+.modal-impulse-header{
+    margin-bottom: 25px;
+}
+
+.modal-impulse-header{
+    font-family: "Pacifico";
+    color: var(--green);
+}
+
+.modal-impulse-main h2{
+    margin-bottom: 20px;
+}
+
+.impulse-reason-box{
+    box-shadow: none;
+    resize: none;
+    outline: 0;
+    border: 3px solid var(--green);
+    border-radius: 6px;
+}
+
+.impulse-reason-box:focus{
+    box-shadow: none;
+    border-color: var(--green);
+}
+
+/* BUTTON STYLING */
+#impulse-modal-buy{
+    box-shadow: none;
+    border: none;
+    background-color: var(--green) !important;
+}
+
+#impulse-modal-cancel{
+    box-shadow: none;
+    border: none;
+    background-color: var(--green) !important;
+}
+
+#impulse-modal-close{
+    box-shadow: none;
+    border: none;
+    background-color: var(--green) !important;
+}
+
+#impulse-modal-buy:focus{
+    border: none !important;
+    outline: 0 !important;
+    box-shadow: none;
+}
+
+#impulse-modal-cancel:focus{
+    border: none !important;
+    outline: 0 !important;
+    box-shadow: none;
+}
+
+#impulse-modal-close:focus{
+    border: none !important;
+    outline: 0 !important;
+    box-shadow: none;
+}
+
+#impulse-modal-buy:active{
+    border: none !important;
+    outline: 0 !important;
+    box-shadow: none;
+}
+
+#impulse-modal-cancel:active{
+    border: none !important;
+    outline: 0 !important;
+    box-shadow: none;
+}
+
+#impulse-modal-close:active{
+    border: none !important;
+    outline: 0 !important;
+    box-shadow: none;
+}
+
+.modal-impulse-content input {
+  position: absolute;
+  opacity: 0;
+}
+
+.char-count{
+    margin-bottom: 5px;
+}
+
+#impulse-congrats-alert{
+    display: none;
+    background-color: var(--green);
+    color: var(--white);
+}

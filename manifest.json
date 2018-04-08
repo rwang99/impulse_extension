@@ -12,21 +12,35 @@
     "chrome_style": false
   },
 
-  "icons": {},
+  "icons": {"128": "icon_128.png"},
+
+  "browser_action": {
+    "default_icon": "icon.png",
+    "default_popup": "dashboard.html"
+  },
 
   "permissions": [
-    "http://*/*", "https://*/*",
+    "*://*/*",
     "activeTab",
     "storage"
   ],
 
-  "content_scripts": 
-  [
+  "content_scripts": [
     {
-      "matches": ["*://*/*"], 
-      "js": ["/jquery-3.2.1.min.js","script.js"],
+      "matches": ["*://*.amazon.com/*"],
+      "js": [
+        "js/stitch.min.js",
+        "jquery-3.2.1.min.js",
+        "script.js",
+        "bootstrap.min.js"
+      ],
       "run_at": "document_end",
-      "css": ["popup.css"]
+      "css": [
+        "/stylesheets/bootstrap.min.css",
+        "/stylesheets/popup.css",
+        "/stylesheets/pacifico.css",
+        "/stylesheets/roboto.css"
+      ]
     }
   ]
 
