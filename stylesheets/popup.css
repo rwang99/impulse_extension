@@ -82,13 +82,44 @@
     border-color: var(--green);
 }
 
-.modal-impulse button{
+/* BUTTON STYLING */
+#impulse-modal-buy{
     box-shadow: none;
     border: none;
     background-color: var(--green) !important;
 }
 
-.modal-impulse input {
+#impulse-modal-cancel{
+    box-shadow: none;
+    border: none;
+    background-color: var(--green) !important;
+}
+
+#impulse-modal-buy:focus{
+    border: none !important;
+    outline: 0 !important;
+    box-shadow: none;
+}
+
+#impulse-modal-cancel:focus{
+    border: none !important;
+    outline: 0 !important;
+    box-shadow: none;
+}
+
+#impulse-modal-buy:active{
+    border: none !important;
+    outline: 0 !important;
+    box-shadow: none;
+}
+
+#impulse-modal-cancel:active{
+    border: none !important;
+    outline: 0 !important;
+    box-shadow: none;
+}
+
+.modal-impulse-content input {
   position: absolute;
   opacity: 0;
 }
