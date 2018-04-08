@@ -81,20 +81,33 @@ $("#sc-buy-box-ptc-button").click(function(e){
                     wasPurchased: true,
                     decisionReason: $(".impulse-reason-box").val(),
 
-                }
+                };
 
-                /* THIS IS WHERE THE POST REQUEST WILL GO */
-                // stitchClientPromise.then(client => {
-                //     const db = client.service('mongodb', 'mongodb-atlas').db('impulse');
-                //     client.login().then(()=>
-                //         db.collection('users').find({email: "ephremdsg@gmail.com"}).execute()
-                //     ).then(docs => {
-                //         console.log("Found docs", docs)
-                //         console.log("[MongoDB Stitch] Connected to Stitch")
-                //     }).catch(err => {
-                //         console.error(err)
-                //     });
-                // });
+                // Get our ip to get the user id from auth db
+                $.get( "https://freegeoip.net/json/", function( data ) {
+                    const ip = data.ip;
+
+                    // Get the user id attached to our auth'ed ip
+                    $.get( `http://localhost:3000/auth/${ip}`, function( data ) {
+                        const userId = data.userId;
+
+                        // Use the user id to fetch the user document with that id with stitch
+                        stitchClientPromise.then(client => {
+                            const db = client.service('mongodb', 'mongodb-atlas').db('impulse');
+                            client.login().then(()=>
+                                db.collection('users').find({id: userId}).execute()
+                            ).then(userDocument => {
+                                // Push the purchase data onto the document
+                                userDocument[0].purchaseData.push(purchasedData)
+
+                                // // Re-Save the document
+                                db.collection('users').updateOne({id: userId}, userDocument[0]);
+                            }).catch(err => {
+                                console.error(err)
+                            });
+                        });
+                    });
+                });
 
                 $(".modal-impulse-wrapper").html(""); // Blank the modal
                 $('#sc-buy-box-ptc-button').trigger('click'); // Allow them to continue with their checkout
@@ -102,7 +115,6 @@ $("#sc-buy-box-ptc-button").click(function(e){
 
             // If the user cancels the purchase
             $("#impulse-modal-cancel").click(function(){
-                console.dir(JSON.parse(localStorage.getItem("user")));
                 if (!itemPriceAccountedFor){ // If we have not accounted for the savings, account for them
 
                     let unpurchasedData = {
@@ -115,7 +127,31 @@ $("#sc-buy-box-ptc-button").click(function(e){
 
                     }
 
-                    /* THIS IS WHERE THE POST REQUEST WILL GO */
+                    // Get our ip to get the user id from auth db
+                    $.get( "https://freegeoip.net/json/", function( data ) {
+                        const ip = data.ip;
+
+                        // Get the user id attached to our auth'ed ip
+                        $.get( `http://localhost:3000/auth/${ip}`, function( data ) {
+                            const userId = data.userId;
+
+                            // Use the user id to fetch the user document with that id with stitch
+                            stitchClientPromise.then(client => {
+                                const db = client.service('mongodb', 'mongodb-atlas').db('impulse');
+                                client.login().then(()=>
+                                    db.collection('users').find({id: userId}).execute()
+                                ).then(userDocument => {
+                                    // Push the purchase data onto the document
+                                    userDocument[0].purchaseData.push(unpurchasedData)
+
+                                    // // Re-Save the document
+                                    db.collection('users').updateOne({id: userId}, userDocument[0]);
+                                }).catch(err => {
+                                    console.error(err)
+                                });
+                            });
+                        });
+                    });
 
                 }
                 $(".modal-impulse-wrapper").html(""); // Blank the modal

@@ -1,6 +1,6 @@
 $(document).ready(function(){
 
-    if (localStorage.getItem('user') == "null"){
+    if (localStorage.getItem('user') == "null" || localStorage.getItem('user') == "undefined" || localStorage.getItem('user').error == undefined){
         $(".not-signed-in").show();
         $(".signed-in").hide();
     }
@@ -13,20 +13,22 @@ $(document).ready(function(){
     $( "#signin-button" ).click(function() {
         const email = $('#name').val();
         const password = $('#password').val();
-        const data = { email, password };
+        // get ip
+        $.get( "https://freegeoip.net/json/", function( data ) {
+            const ip = data.ip;
+            const postData = { email, password, ip};
 
-        $.post( "http://localhost:3000/sign-in-extension", data, function( user ) {
-            // Now the global userId has a value. The user is logged in and can see their data.
-            localStorage.setItem('user', JSON.stringify(user));
+            $.post( "http://localhost:3000/sign-in-extension", postData, function( user ) {
+                // Now the global userId has a value. The user is logged in and can see their data.
+                localStorage.setItem('user', JSON.stringify(user));
 
-            $(".not-signed-in").hide();
-            $(".signed-in").show();
+                $(".not-signed-in").hide();
+                $(".signed-in").show();
 
-            $("#welcome-text").html("Welcome, " + user.user.name);
+                $("#welcome-text").html("Welcome, " + user.user.name);
 
+            });
         });
-
-        // POST IP, USERID
 
     });
 
