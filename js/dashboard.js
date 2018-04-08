@@ -2,16 +2,18 @@ let userIpAddress;
 
 $(document).ready(function(){
 
-    if (localStorage.getItem('user') == "null" || localStorage.getItem('user') == "undefined" || localStorage.getItem('user').error == undefined){
+    // If the user is not logged in, don't let them in
+    if (localStorage.getItem('user') == "null" || localStorage.getItem('user') == "undefined"){
         $(".not-signed-in").show();
         $(".signed-in").hide();
     }
-    else{
+    else{ // If the user is logged in, let them in
         $("#welcome-text").html("Welcome, " + JSON.parse(localStorage.getItem('user')).user.name);
         $(".not-signed-in").hide();
         $(".signed-in").show();
     }
 
+    // When they try to sign in, create {ip, id} k,v pair in the db (so modal can access)
     $( "#signin-button" ).click(function() {
         const email = $('#name').val();
         const password = $('#password').val();
@@ -34,6 +36,7 @@ $(document).ready(function(){
 
     });
 
+    // When they log out, delete {ip, id} k,v pair in the db, erase local storage, update ui
     $ ( "#logout-button").click(function(){
 
         localStorage.setItem('user', null);
