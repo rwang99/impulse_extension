@@ -84,30 +84,28 @@ $("#sc-buy-box-ptc-button").click(function(e){
                 };
 
                 // Get our ip to get the user id from auth db
-                $.get( "http://freegeoip.net/json/", function( data ) {
+                $.get( "https://freegeoip.net/json/", function( data ) {
                     const ip = data.ip;
-                    console.log(ip)
 
                     // Get the user id attached to our auth'ed ip
                     $.get( `http://localhost:3000/auth/${ip}`, function( data ) {
-                        console.log(data)
                         const userId = data.userId;
 
-                        // User the id to fetch the user document with that id with stitch
-                        console.log(userId);
-                        // stitchClientPromise.then(client => {
-                        //     const db = client.service('mongodb', 'mongodb-atlas').db('impulse');
-                        //     client.login().then(()=>
-                        //         db.collection('users').find({email: "ephremdsg@gmail.com"}).execute()
-                        //     ).then(docs => {
-                        //         console.log("Found docs", docs)
-                        //         console.log("[MongoDB Stitch] Connected to Stitch")
-                        //     }).catch(err => {
-                        //         console.error(err)
-                        //     });
-                        // });
+                        // Use the user id to fetch the user document with that id with stitch
+                        stitchClientPromise.then(client => {
+                            const db = client.service('mongodb', 'mongodb-atlas').db('impulse');
+                            client.login().then(()=>
+                                db.collection('users').find({id: userId}).execute()
+                            ).then(userDocument => {
+                                // Push the purchase data onto the document
+                                userDocument[0].purchaseData.push(purchasedData)
 
-                        // Push the purchase data onto the document and re-save with Stitch
+                                // // Re-Save the document
+                                db.collection('users').updateOne({id: userId}, userDocument[0]);
+                            }).catch(err => {
+                                console.error(err)
+                            });
+                        });
                     });
                 });
 
@@ -117,7 +115,6 @@ $("#sc-buy-box-ptc-button").click(function(e){
 
             // If the user cancels the purchase
             $("#impulse-modal-cancel").click(function(){
-                console.dir(JSON.parse(localStorage.getItem("user")));
                 if (!itemPriceAccountedFor){ // If we have not accounted for the savings, account for them
 
                     let unpurchasedData = {
@@ -133,27 +130,22 @@ $("#sc-buy-box-ptc-button").click(function(e){
                     // Get our ip to get the user id from auth db
                     $.get( "https://freegeoip.net/json/", function( data ) {
                         const ip = data.ip;
-                        console.log(ip)
 
                         // Get the user id attached to our auth'ed ip
                         $.get( `http://localhost:3000/auth/${ip}`, function( data ) {
                             const userId = data.userId;
 
-                            console.log(userId);
-
                             // Use the user id to fetch the user document with that id with stitch
                             stitchClientPromise.then(client => {
                                 const db = client.service('mongodb', 'mongodb-atlas').db('impulse');
                                 client.login().then(()=>
-                                    // get the user document
-                                    db.collection('users').find({_id: userId}).execute()
+                                    db.collection('users').find({id: userId}).execute()
                                 ).then(userDocument => {
                                     // Push the purchase data onto the document
-                                    console.log(userDocument)
-                                    // userDocument.purchaseData.push(unpurchasedData)
-                                    //
+                                    userDocument[0].purchaseData.push(unpurchasedData)
+
                                     // // Re-Save the document
-                                    // db.collection('users').updateOne({_id: userId}, updatedUserDocument);
+                                    db.collection('users').updateOne({id: userId}, userDocument[0]);
                                 }).catch(err => {
                                     console.error(err)
                                 });
