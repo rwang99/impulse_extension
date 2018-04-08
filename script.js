@@ -13,7 +13,7 @@ $('body').append(modalHTML);
 // When the user presses proceed to checkout button stop action
 $("#sc-buy-box-ptc-button").click(function(e){
 
-    if (2==2){ // If they are logged in
+    if (2==2){ // If they are logged in (if their IP is in the DB)
 
         // If the user has not put in their justification yet
         if (poppedUp == false){
