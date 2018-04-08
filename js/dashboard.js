@@ -3,7 +3,7 @@ let userIpAddress;
 $(document).ready(function(){
 
     // If the user is not logged in, don't let them in
-    if (localStorage.getItem('user') == "null" || localStorage.getItem('user') == "undefined"){
+    if (localStorage.getItem('user') == "null" || localStorage.getItem('user') == null || localStorage.getItem('user') == "undefined"){
         $(".not-signed-in").show();
         $(".signed-in").hide();
     }

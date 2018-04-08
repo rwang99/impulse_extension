@@ -4,16 +4,7 @@ let itemPriceAccountedFor = false;
 let appId = 'impulse-gmdpe';
 let stitchClientPromise = stitch.StitchClientFactory.create(appId);
 
-<<<<<<< HEAD
-/*
-$("#sc-buy-box-ptc-button").click(function(){
-    var mod = document.createElement('div');
-    mod.setAttribute('modal', '');
-    document.querySelector('#sc-new-upsell').appendChild(mod);
-    alert("Test: " + $("#sc-subtotal-amount-activecart").text());
-=======
 let modalHTML = '<div class = "modal-impulse-wrapper">' +
->>>>>>> 8afb26468add02e0ed41b82d70c69869757f5942
 
                 '</div>';
 
