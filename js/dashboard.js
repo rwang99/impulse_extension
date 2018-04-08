@@ -1,6 +1,6 @@
 $(document).ready(function(){
 
-    if (localStorage.getItem('user') === null){
+    if (localStorage.getItem('user') == "null" || localStorage.getItem('user') == "undefined" || localStorage.getItem('user').error == undefined){
         $(".not-signed-in").show();
         $(".signed-in").hide();
     }

@@ -137,24 +137,27 @@ $("#sc-buy-box-ptc-button").click(function(e){
 
                         // Get the user id attached to our auth'ed ip
                         $.get( `http://localhost:3000/auth/${ip}`, function( data ) {
-                            console.log(data)
                             const userId = data.userId;
 
-                            // User the id to fetch the user document with that id with stitch
                             console.log(userId);
-                            // stitchClientPromise.then(client => {
-                            //     const db = client.service('mongodb', 'mongodb-atlas').db('impulse');
-                            //     client.login().then(()=>
-                            //         db.collection('users').find({email: "ephremdsg@gmail.com"}).execute()
-                            //     ).then(docs => {
-                            //         console.log("Found docs", docs)
-                            //         console.log("[MongoDB Stitch] Connected to Stitch")
-                            //     }).catch(err => {
-                            //         console.error(err)
-                            //     });
-                            // });
 
-                            // Push the purchase data onto the document and re-save with Stitch
+                            // Use the user id to fetch the user document with that id with stitch
+                            stitchClientPromise.then(client => {
+                                const db = client.service('mongodb', 'mongodb-atlas').db('impulse');
+                                client.login().then(()=>
+                                    // get the user document
+                                    db.collection('users').find({_id: userId}).execute()
+                                ).then(userDocument => {
+                                    // Push the purchase data onto the document
+                                    console.log(userDocument)
+                                    // userDocument.purchaseData.push(unpurchasedData)
+                                    //
+                                    // // Re-Save the document
+                                    // db.collection('users').updateOne({_id: userId}, updatedUserDocument);
+                                }).catch(err => {
+                                    console.error(err)
+                                });
+                            });
                         });
                     });
 
