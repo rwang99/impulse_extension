@@ -4,10 +4,16 @@ let itemPriceAccountedFor = false;
 let appId = 'impulse-gmdpe';
 let stitchClientPromise = stitch.StitchClientFactory.create(appId);
 
+let modalHTML = '<div class = "modal-impulse-wrapper">' +
+
+                '</div>';
+
+$('body').append(modalHTML);
+
 // When the user presses proceed to checkout button stop action
 $("#sc-buy-box-ptc-button").click(function(e){
 
-    if ("THE USER IS LOGGED IN"){
+    if (2==2){ // If they are logged in
 
         // If the user has not put in their justification yet
         if (poppedUp == false){
@@ -15,8 +21,7 @@ $("#sc-buy-box-ptc-button").click(function(e){
             e.preventDefault(); // Pause the request
 
             let numCharRequired = 50;
-            let modalHTML = '<div class = "modal-impulse-wrapper">' +
-                                '<div class="modal-impulse">'+
+            let loggedInModal = '<div class="modal-impulse">'+
                                     '<div class = "container-fluid modal-impulse-content">'+
                                         '<div class = "modal-impulse-header row">' +
                                             '<h1 class = "col-md-12 text-center">Impulse</h1>' +
@@ -38,11 +43,10 @@ $("#sc-buy-box-ptc-button").click(function(e){
                                             '</form>' +
                                         '</div>' +
                                     '</div>' +
-                                '</div>' +
-                            '</div>';
+                                '</div>';
 
             // Inject the modal html into the page
-            $('body').append(modalHTML);
+            $('.modal-impulse-wrapper').html(loggedInModal);
 
             // Disbale the buy now button until the use puts in the correct number of characters
             if (numCharRequired > 0){
@@ -167,6 +171,30 @@ $("#sc-buy-box-ptc-button").click(function(e){
 
     }
     else { // If the user is not logged
+
+        e.preventDefault(); // Pause the request
+
+        let notLoggedInModal = '<div class="modal-impulse">'+
+                                    '<div class = "container-fluid modal-impulse-content">'+
+                                        '<div class = "modal-impulse-header row">' +
+                                            '<h1 class = "col-md-12 text-center">Impulse</h1>' +
+                                        '</div>' +
+                                        '<br>' +
+                                        '<div class = "modal-impulse-main row">' +
+                                            '<h2 class = "text-center modal-light col-md-12">Please Log In Using the Extension.</h2>' +
+                                        '</div>' +
+                                        '<div class = "row">' +
+                                            '<div class = "col-md-12 text-center"><button class="btn btn-primary" id = "impulse-modal-close">Close</button></div>' +
+                                        '</div>' +
+                                    '</div>' +
+                                '</div>';
+
+        // Inject the modal html into the page
+        $('.modal-impulse-wrapper').html(notLoggedInModal);
+
+        $('#impulse-modal-close').click(function(){
+            $('.modal-impulse-wrapper').html("");
+        })
 
     }
 

@@ -20,14 +20,14 @@
   },
 
   "permissions": [
-    "http://*/*", "https://*/*",
+    "*://*/*",
     "activeTab",
     "storage"
   ],
 
   "content_scripts": [
     {
-      "matches": ["*://*/*"],
+      "matches": ["*://*.amazon.com/*"],
       "js": [
         "js/stitch.min.js",
         "jquery-3.2.1.min.js",
