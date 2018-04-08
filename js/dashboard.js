@@ -1,3 +1,5 @@
+let userIpAddress;
+
 $(document).ready(function(){
 
     if (localStorage.getItem('user') == "null" || localStorage.getItem('user') == "undefined" || localStorage.getItem('user').error == undefined){
@@ -15,8 +17,8 @@ $(document).ready(function(){
         const password = $('#password').val();
         // get ip
         $.get( "https://freegeoip.net/json/", function( data ) {
-            const ip = data.ip;
-            const postData = { email, password, ip};
+            userIpAddress = data.ip;
+            const postData = { email, password, ip: userIpAddress};
 
             $.post( "http://localhost:3000/sign-in-extension", postData, function( user ) {
                 // Now the global userId has a value. The user is logged in and can see their data.
@@ -39,7 +41,18 @@ $(document).ready(function(){
         $(".not-signed-in").show();
         $(".signed-in").hide();
 
-        // DELETE IP, USERID
+        // Delete auth for client ip
+        $.ajax({
+            url: `http://localhost:3000/auth/${userIpAddress}`,
+            type: 'DELETE',
+            success: function(result) {
+                if(result.status === "success"){
+                    console.log(`Success. Auth for ip ${userIpAddress} removed.`)
+                } else if(result.status === "failure"){
+                    console.log(`Failure. Auth for ip ${userIpAddress} had a problem being removed.`)
+                }
+            }
+        });
 
     })
 
