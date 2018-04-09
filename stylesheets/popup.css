@@ -7,12 +7,8 @@
     --gray: #DBDBDB;
 }
 
-.modal-light{
+.impulse-modal-light{
     font-weight: 300;
-}
-
-.modal-bold{
-    font-weight: 700;
 }
 
 .modal-impulse h1{
@@ -32,7 +28,7 @@
 }
 
 /* The Modal (background) */
-.modal-impulse {
+.impulse-modal {
     display: block; /* Hidden by default */
     position: fixed; /* Stay in place */
     z-index: 1000; /* Sit on top */
@@ -46,7 +42,7 @@
 }
 
 /* Modal Content/Box */
-.modal-impulse-content {
+.impulse-modal-content {
     font-family: "Roboto";
     background-color: var(--white);
     margin: 12% auto; /* 15% from the top and centered */
@@ -56,20 +52,20 @@
     box-shadow: 0 8px 10px 0 rgba(0,0,0,0.1);
 }
 
-.modal-impulse-header{
+.impulse-modal-header{
     margin-bottom: 25px;
 }
 
-.modal-impulse-header{
+.impulse-modal-header{
     font-family: "Pacifico";
     color: var(--green);
 }
 
-.modal-impulse-main h2{
+.impulse-modal-main h2{
     margin-bottom: 20px;
 }
 
-.impulse-reason-box{
+.impulse-modal-reason-box{
     box-shadow: none;
     resize: none;
     outline: 0;
@@ -77,77 +73,71 @@
     border-radius: 6px;
 }
 
-.impulse-reason-box:focus{
+.impulse-modal-reason-box:focus{
     box-shadow: none;
     border-color: var(--green);
 }
 
 /* BUTTON STYLING */
-#impulse-modal-buy{
+#impulse-modal-buy-button{
     box-shadow: none;
     border: none;
     background-color: var(--green) !important;
 }
 
-#impulse-modal-cancel{
+#impulse-modal-cancel-button{
     box-shadow: none;
     border: none;
     background-color: var(--green) !important;
 }
 
-#impulse-modal-close{
+#impulse-modal-close-button{
     box-shadow: none;
     border: none;
     background-color: var(--green) !important;
 }
 
-#impulse-modal-buy:focus{
+#impulse-modal-buy-button:focus{
     border: none !important;
     outline: 0 !important;
     box-shadow: none;
 }
 
-#impulse-modal-cancel:focus{
+#impulse-modal-cancel-button:focus{
     border: none !important;
     outline: 0 !important;
     box-shadow: none;
 }
 
-#impulse-modal-close:focus{
+#impulse-modal-close-button:focus{
     border: none !important;
     outline: 0 !important;
     box-shadow: none;
 }
 
-#impulse-modal-buy:active{
+#impulse-modal-buy-button:active{
     border: none !important;
     outline: 0 !important;
     box-shadow: none;
 }
 
-#impulse-modal-cancel:active{
+#impulse-modal-cancel-button:active{
     border: none !important;
     outline: 0 !important;
     box-shadow: none;
 }
 
-#impulse-modal-close:active{
+#impulse-modal-close-button:active{
     border: none !important;
     outline: 0 !important;
     box-shadow: none;
 }
 
-.modal-impulse-content input {
+.impulse-modal-content input {
   position: absolute;
   opacity: 0;
 }
 
-.char-count{
+.impulse-modal-char-count{
     margin-bottom: 5px;
-}
-
-#impulse-congrats-alert{
-    display: none;
-    background-color: var(--green);
-    color: var(--white);
 }

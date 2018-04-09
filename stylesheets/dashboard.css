@@ -54,35 +54,41 @@ h1 {
 }
 
 #signin-button{
+    color: var(--white);
     background-color: var(--green);
     border: none;
+    border-radius: 0 !important;
+    position: fixed;
+    width: 100%;
+    margin: 0 auto;
+    bottom: 0;
 }
 
 #logout-button{
+    color: var(--white);
     background-color: var(--green);
     border: none;
+    border-radius: 0 !important;
+    position: fixed;
+    width: 100%;
+    margin: 0 auto;
+    bottom: 0;
 }
 
-#signin-button:focus{
+._btn:focus{
     border: none !important;
     outline: 0 !important;
     box-shadow: none;
 }
 
-#signin-button:active{
+_.btn:active{
     border: none !important;
     outline: 0 !important;
     box-shadow: none;
 }
 
-#logout-button:focus{
-    border: none !important;
-    outline: 0 !important;
-    box-shadow: none;
-}
+/* BUTTON ANIMATION */
 
-#logout-button:active{
-    border: none !important;
-    outline: 0 !important;
-    box-shadow: none;
+._btn:hover{
+    background-color: #10A06B !important;
 }
