@@ -3,11 +3,12 @@ let userIpAddress;
 $(document).ready(function(){
 
     // If the user is not logged in, don't let them in
-    if (localStorage.getItem('user') == "null" || localStorage.getItem('user') == null || localStorage.getItem('user') == "undefined"){
+    if (localStorage.getItem('user') == "null" || localStorage.getItem('user') == null || localStorage.getItem('user') == "undefined" || localStorage.getItem('user').user == undefined){
         $(".not-signed-in").show();
         $(".signed-in").hide();
     }
     else{ // If the user is logged in, let them in
+        console.log(localStorage.getItem('user'));
         $("#welcome-text").html("Welcome, " + JSON.parse(localStorage.getItem('user')).user.name);
         $(".not-signed-in").hide();
         $(".signed-in").show();
