@@ -5,6 +5,7 @@
     --red: #EF2D56;
     --white: #FFFFFF;
     --gray: #DBDBDB;
+    --green-hover: #10A06B;
 }
 
 html, body {
@@ -75,20 +76,19 @@ h1 {
     bottom: 0;
 }
 
+._btn:hover{
+    background-color: #10A06B !important;
+}
+
+
 ._btn:focus{
     border: none !important;
     outline: 0 !important;
     box-shadow: none;
 }
 
-_.btn:active{
+._btn:active{
     border: none !important;
     outline: 0 !important;
     box-shadow: none;
-}
-
-/* BUTTON ANIMATION */
-
-._btn:hover{
-    background-color: #10A06B !important;
 }

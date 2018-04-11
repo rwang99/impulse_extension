@@ -51,8 +51,8 @@ $("#sc-buy-box-ptc-button").click(function(e){
                         '</div>' +
                         '<br>' +
                         '<div class = "text-center">' +
-                        '<button class="btn btn-primary" id = "impulse-modal-buy-button">Buy Anyway</button> ' +
-                        '<button class="btn btn-primary" id = "impulse-modal-cancel-button">This Is An Impulse Purchase</button>' +
+                        '<button class="btn btn-primary impulse-modal-btn" id = "impulse-modal-buy-button">Buy Anyway</button> ' +
+                        '<button class="btn btn-primary impulse-modal-btn" id = "impulse-modal-cancel-button">This Is An Impulse Purchase</button>' +
                         '</div>'+
                         '</form>' +
                         '</div>' +
@@ -180,7 +180,7 @@ $("#sc-buy-box-ptc-button").click(function(e){
                     '<h2 class = "text-center impulse-modal-light col-md-12">Please Log In Using the Extension.</h2>' +
                     '</div>' +
                     '<div class = "row">' +
-                    '<div class = "col-md-12 text-center"><button class="btn btn-primary" id = "impulse-modal-close-button">Close</button></div>' +
+                    '<div class = "col-md-12 text-center"><button class="btn btn-primary impulse-modal-btn" id = "impulse-modal-close-button">Close</button></div>' +
                     '</div>' +
                     '</div>' +
                     '</div>';

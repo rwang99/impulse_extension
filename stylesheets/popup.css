@@ -5,6 +5,8 @@
     --red: #EF2D56;
     --white: #FFFFFF;
     --gray: #DBDBDB;
+    --green-hover: #10A06B;
+
 }
 
 .impulse-modal-light{
@@ -49,7 +51,7 @@
     padding: 20px;
     border-radius: 4px;
     width: 50%; /* Could be more or less, depending on screen size */
-    box-shadow: 0 8px 10px 0 rgba(0,0,0,0.1);
+    box-shadow: 0 8px 10px 0 rgba(0,0,0,0.2);
 }
 
 .impulse-modal-header{
@@ -79,55 +81,24 @@
 }
 
 /* BUTTON STYLING */
-#impulse-modal-buy-button{
+.impulse-modal-btn{
     box-shadow: none;
     border: none;
     background-color: var(--green) !important;
 }
 
-#impulse-modal-cancel-button{
-    box-shadow: none;
-    border: none;
-    background-color: var(--green) !important;
+.impulse-modal-btn:hover {
+    background-color: var(--green-hover) !important;
+
 }
 
-#impulse-modal-close-button{
-    box-shadow: none;
-    border: none;
-    background-color: var(--green) !important;
-}
-
-#impulse-modal-buy-button:focus{
+.impulse-modal-btn:focus{
     border: none !important;
     outline: 0 !important;
     box-shadow: none;
 }
 
-#impulse-modal-cancel-button:focus{
-    border: none !important;
-    outline: 0 !important;
-    box-shadow: none;
-}
-
-#impulse-modal-close-button:focus{
-    border: none !important;
-    outline: 0 !important;
-    box-shadow: none;
-}
-
-#impulse-modal-buy-button:active{
-    border: none !important;
-    outline: 0 !important;
-    box-shadow: none;
-}
-
-#impulse-modal-cancel-button:active{
-    border: none !important;
-    outline: 0 !important;
-    box-shadow: none;
-}
-
-#impulse-modal-close-button:active{
+.impulse-modal-btn:active{
     border: none !important;
     outline: 0 !important;
     box-shadow: none;

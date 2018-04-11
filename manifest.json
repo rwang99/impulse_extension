@@ -34,7 +34,7 @@
         "script.js",
         "bootstrap.min.js"
       ],
-      "run_at": "document_end",
+      "run_at": "document_idle",
       "css": [
         "/stylesheets/bootstrap.min.css",
         "/stylesheets/popup.css",
